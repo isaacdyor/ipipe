@@ -1,0 +1,22 @@
+{
+  "kind": "cloudflare::Worker",
+  "id": "worker",
+  "fqn": "api/isaacdyor/worker",
+  "seq": 0,
+  "status": "creating",
+  "data": {},
+  "output": {
+    "Symbol(alchemy::ResourceID)": "worker",
+    "Symbol(alchemy::ResourceFQN)": "api/isaacdyor/worker",
+    "Symbol(alchemy::ResourceKind)": "cloudflare::Worker",
+    "Symbol(alchemy::ResourceScope)": {
+      "@scope": null
+    },
+    "Symbol(alchemy::ResourceSeq)": 0,
+    "Symbol(alchemy::DestroyStrategy)": "sequential"
+  },
+  "props": {
+    "entrypoint": "src/worker.ts"
+  },
+  "oldProps": {}
+}

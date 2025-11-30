@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b",
+    "deploy": "alchemy deploy",
+    "destroy": "alchemy destroy",
+    "dev": "alchemy dev"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250805.0",
+    "@types/node": "^22.15.3",
+    "miniflare": "^4.20250617.3",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "alchemy-effect": "^0.2.0",
+    "effect": "^3.19.8"
+  }
+}
