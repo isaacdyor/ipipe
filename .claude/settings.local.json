@@ -4,7 +4,8 @@
       "Bash(bun install:*)",
       "Bash(bun run dev)",
       "Bash(bun pm:*)",
-      "Bash(bun add:*)"
+      "Bash(bun add:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

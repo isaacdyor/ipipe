@@ -1,0 +1,27 @@
+meta {
+  name: Get Upload URL
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/upload-url
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "filename": "test-video.mp4"
+  }
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:1337
+}
+
+script:post-response {
+  // Automatically save the upload key to environment variable
+  const response = res.getBody();
+  bru.setEnvVar("uploadKey", response.key);
+}
