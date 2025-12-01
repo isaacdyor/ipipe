@@ -1,0 +1,84 @@
+{
+  "kind": "cloudflare::Worker",
+  "id": "worker",
+  "fqn": "api/isaacdyor/worker",
+  "seq": 1,
+  "data": {},
+  "status": "updated",
+  "output": {
+    "Symbol(alchemy::ResourceKind)": "cloudflare::Worker",
+    "Symbol(alchemy::ResourceID)": "worker",
+    "Symbol(alchemy::ResourceFQN)": "api/isaacdyor/worker",
+    "Symbol(alchemy::ResourceScope)": {
+      "@scope": null
+    },
+    "Symbol(alchemy::ResourceSeq)": 1,
+    "entrypoint": "src/worker.ts",
+    "bindings": {
+      "BUCKET": {
+        "Symbol(alchemy::ResourceKind)": "cloudflare::R2Bucket",
+        "Symbol(alchemy::ResourceID)": "bucket",
+        "Symbol(alchemy::ResourceFQN)": "api/isaacdyor/bucket",
+        "Symbol(alchemy::ResourceScope)": {
+          "@scope": null
+        },
+        "Symbol(alchemy::ResourceSeq)": 0,
+        "name": "bucket",
+        "location": "",
+        "creationDate": {
+          "@date": "2025-12-01T02:46:53.517Z"
+        },
+        "jurisdiction": "default",
+        "type": "r2_bucket",
+        "accountId": "",
+        "dev": {
+          "id": "bucket",
+          "remote": false,
+          "isDeployed": false
+        }
+      }
+    },
+    "type": "service",
+    "id": "worker",
+    "name": "api-worker-isaacdyor",
+    "cwd": "",
+    "compatibilityDate": "2025-11-28",
+    "compatibilityFlags": [],
+    "format": "esm",
+    "createdAt": 1764556438501,
+    "updatedAt": 1764557290122,
+    "url": "http://localhost:1337/",
+    "routes": [],
+    "domains": [],
+    "dev": {
+      "hasRemote": false
+    }
+  },
+  "props": {
+    "entrypoint": "src/worker.ts",
+    "bindings": {
+      "BUCKET": {
+        "Symbol(alchemy::ResourceKind)": "cloudflare::R2Bucket",
+        "Symbol(alchemy::ResourceID)": "bucket",
+        "Symbol(alchemy::ResourceFQN)": "api/isaacdyor/bucket",
+        "Symbol(alchemy::ResourceScope)": {
+          "@scope": null
+        },
+        "Symbol(alchemy::ResourceSeq)": 0,
+        "name": "bucket",
+        "location": "",
+        "creationDate": {
+          "@date": "2025-12-01T02:46:53.517Z"
+        },
+        "jurisdiction": "default",
+        "type": "r2_bucket",
+        "accountId": "",
+        "dev": {
+          "id": "bucket",
+          "remote": false,
+          "isDeployed": false
+        }
+      }
+    }
+  }
+}

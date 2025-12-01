@@ -1,0 +1,37 @@
+{
+  "kind": "cloudflare::R2Bucket",
+  "id": "bucket",
+  "fqn": "api/isaacdyor/bucket",
+  "seq": 0,
+  "data": {},
+  "status": "updated",
+  "output": {
+    "Symbol(alchemy::ResourceKind)": "cloudflare::R2Bucket",
+    "Symbol(alchemy::ResourceID)": "bucket",
+    "Symbol(alchemy::ResourceFQN)": "api/isaacdyor/bucket",
+    "Symbol(alchemy::ResourceScope)": {
+      "@scope": null
+    },
+    "Symbol(alchemy::ResourceSeq)": 0,
+    "name": "bucket",
+    "location": "",
+    "creationDate": {
+      "@date": "2025-12-01T02:46:53.517Z"
+    },
+    "jurisdiction": "default",
+    "type": "r2_bucket",
+    "accountId": "",
+    "dev": {
+      "id": "bucket",
+      "remote": false,
+      "isDeployed": false
+    }
+  },
+  "props": {
+    "name": "bucket",
+    "devDomain": true,
+    "dev": {
+      "force": true
+    }
+  }
+}
