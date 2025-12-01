@@ -5,7 +5,11 @@
       "Bash(bun run dev)",
       "Bash(bun pm:*)",
       "Bash(bun add:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(cat:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(bun run:*)"
     ],
     "deny": [],
     "ask": []

@@ -5,7 +5,7 @@ meta {
 }
 
 put {
-  url: {{baseUrl}}/upload/{{uploadKey}}
+  url: {{uploadUrl}}
   body: text
   auth: none
 }
@@ -15,15 +15,17 @@ body:text {
 }
 
 docs {
-  # Upload File
+  # Upload File - Direct to R2
 
-  This request uploads a file to R2 using the upload endpoint.
+  This request uploads a file directly to R2 using the presigned URL.
 
   ## Steps:
-  1. First run "Get Upload URL" to get the upload key
-  2. Set the {{uploadKey}} variable with the key from the response
-  3. In Bruno, change body type to file upload or binary
+  1. First run "Get Upload URL" to get the presigned URL
+  2. The {{uploadUrl}} variable is automatically set by the post-response script
+  3. In Bruno, change body type to file upload or binary to upload actual files
   4. Select your video file to upload
 
   For testing with text, you can use the body:text section above.
+
+  Note: This uploads DIRECTLY to R2, not through your worker!
 }

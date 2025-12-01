@@ -21,7 +21,8 @@ vars:pre-request {
 }
 
 script:post-response {
-  // Automatically save the upload key to environment variable
+  // Automatically save the upload URL and key to environment variables
   const response = res.getBody();
   bru.setEnvVar("uploadKey", response.key);
+  bru.setEnvVar("uploadUrl", response.uploadUrl);
 }

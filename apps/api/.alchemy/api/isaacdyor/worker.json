@@ -36,7 +36,11 @@
           "remote": false,
           "isDeployed": false
         }
-      }
+      },
+      "BUCKET_NAME": "bucket",
+      "R2_ACCESS_KEY_ID": "",
+      "R2_SECRET_ACCESS_KEY": "",
+      "CLOUDFLARE_ACCOUNT_ID": ""
     },
     "type": "service",
     "id": "worker",
@@ -46,8 +50,8 @@
     "compatibilityFlags": [],
     "format": "esm",
     "createdAt": 1764556438501,
-    "updatedAt": 1764561227064,
-    "url": "http://localhost:1338/",
+    "updatedAt": 1764564048661,
+    "url": "http://localhost:1337/",
     "routes": [],
     "domains": [],
     "dev": {
@@ -78,7 +82,11 @@
           "remote": false,
           "isDeployed": false
         }
-      }
+      },
+      "BUCKET_NAME": "bucket",
+      "R2_ACCESS_KEY_ID": "",
+      "R2_SECRET_ACCESS_KEY": "",
+      "CLOUDFLARE_ACCOUNT_ID": ""
     }
   }
 }

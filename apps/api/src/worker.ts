@@ -1,4 +1,6 @@
 import { Hono } from "hono";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import type { worker } from "../alchemy.run.ts";
 
 type Bindings = typeof worker.Env;
@@ -19,27 +21,31 @@ app.post("/upload-url", async (c) => {
 
   const key = `${Date.now()}-${filename}`;
 
-  // Since R2 doesn't support presigned URLs in the traditional sense,
-  // we'll return the key and let clients upload via our API endpoint
-  // Or use the R2 public bucket URL if devDomain is enabled
-  return c.json({
-    key: key,
-    uploadEndpoint: `/upload/${key}`,
-    message: "Use the upload endpoint to upload your file",
+  console.log(c.env.CLOUDFLARE_ACCOUNT_ID, "😂😂😂");
+  // Create S3 client configured for R2
+  const s3Client = new S3Client({
+    region: "auto",
+    endpoint: `https://${c.env.CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+    credentials: {
+      accessKeyId: c.env.R2_ACCESS_KEY_ID,
+      secretAccessKey: c.env.R2_SECRET_ACCESS_KEY,
+    },
   });
-});
 
-// Upload file endpoint
-app.put("/upload/:key", async (c) => {
-  const key = c.req.param("key");
-  const body = await c.req.arrayBuffer();
+  // Generate presigned URL for direct R2 upload
+  const command = new PutObjectCommand({
+    Bucket: c.env.BUCKET_NAME,
+    Key: key,
+  });
 
-  await c.env.BUCKET.put(key, body);
+  const uploadUrl = await getSignedUrl(s3Client, command, {
+    expiresIn: 3600, // URL expires in 1 hour
+  });
 
   return c.json({
-    success: true,
-    key: key,
-    message: "File uploaded successfully",
+    uploadUrl,
+    key,
+    expiresIn: 3600,
   });
 });
 
@@ -60,7 +66,7 @@ export default {
   async fetch(
     request: Request,
     env: typeof worker.Env,
-    ctx: ExecutionContext,
+    ctx: ExecutionContext
   ): Promise<Response> {
     return app.fetch(request, env, ctx);
   },
